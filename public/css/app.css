@@ -1232,14 +1232,14 @@ select {
 .mt-0 {
 	margin-top: 0px;
 }
+.mb-5 {
+	margin-bottom: 1.25rem;
+}
 .-mt-px {
 	margin-top: -1px;
 }
 .ml-auto {
 	margin-left: auto;
-}
-.mb-5 {
-	margin-bottom: 1.25rem;
 }
 .mb-0 {
 	margin-bottom: 0px;

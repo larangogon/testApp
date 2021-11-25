@@ -12,7 +12,7 @@ class CompanyController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        //$this->middleware('UserStatus');
+        $this->middleware('UserStatus');
         $this->middleware('verified');
     }
 
@@ -96,6 +96,6 @@ class CompanyController extends Controller
     {
         $company->delete();
 
-        return redirect('/companies');
+        return redirect('companies');
     }
 }
