@@ -1,15 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">Crear</div>
-
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('employees.store') }}">
-                            @csrf
-
-
+    <div class="container mt-4 text-center">
+        <a class="btn btn-primary" href="{{ route('employees.index')}}">Employees</a>
+        <a class="btn btn-danger" href="{{ url('/')}}">Crear</a>
+    </div>
+    <div class="row ">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+    <form-component></form-component>
 @endsection

@@ -1,21 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h3>Editar: {{ $employee->name }}</h3>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form action="{{ route('employees.update', $employee->id) }}" method="POST" enctype="multipart/form-data">
-                    @method('PATCH')
-                    @csrf
-
+    <div class="container mt-4 text-center">
+        <a class="btn btn-primary" href="{{ route('employees.index')}}">Employees</a>
+        <a class="btn btn-danger" href="{{ url('/')}}">Crear</a>
+    </div>
+    <div class="row ">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+    <form-component></form-component>
 @endsection

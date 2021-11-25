@@ -1,7 +1,11 @@
-require('./bootstrap');
+import Vue from 'vue'
+import './bootstrap'
+import FormComponent from "./components/FormComponent";
 
-import Alpine from 'alpinejs';
+window.Vue = Vue
 
-window.Alpine = Alpine;
+Vue.component('form-component', FormComponent)
 
-Alpine.start();
+new Vue({
+    el: '#app'
+})

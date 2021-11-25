@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class CompanyController extends Controller
@@ -51,7 +52,17 @@ class CompanyController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        Company::create($request->all());
+        //'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        $logo = $request->file('logo');
+        $logoName = $logo->getClientOriginalName();
+        $contents = Storage::get($logoName);
+
+        Storage::disk('public')->put($logoName, $contents);
+
+        Company::create($request->all([
+            'logo' => $logoName
+        ]));
 
         return redirect('/companies');
     }
@@ -83,7 +94,15 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company): RedirectResponse
     {
-        $company->update($request->all());
+        $logo = $request->file('logo');
+        $logoName = $logo->getClientOriginalName();
+        $contents = Storage::get($logoName);
+
+        Storage::disk('public')->put($logoName, $contents);
+
+        Company::update($request->all([
+            'logo' => $logoName
+        ]));
 
         return redirect('companies');
     }
