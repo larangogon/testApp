@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         $this->user = $user;
         $this->middleware('auth');
-        $this->middleware('Status');
+        //$this->middleware('UserStatus');
         $this->middleware('verified');
     }
 

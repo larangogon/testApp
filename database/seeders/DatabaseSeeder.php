@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\CompanyFactory;
-use Database\Factories\EmployeeFactory;
+use App\Models\Company;
+use App\Models\Employee;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        CompanyFactory::factory(15)->create();
-        EmployeeFactory::factory(20)->create();
+        Company::factory(15)->create();
+        Employee::factory(20)->create();
 
         $this->call(
             [

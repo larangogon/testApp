@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('name', 30);
             $table->string('lastName', 30);
             $table->unsignedBigInteger('companyId');
-            $table->string('email', 30);
+            $table->string('email', 60);
             $table->string('phone', 30);
 
             $table->foreign('companyId')

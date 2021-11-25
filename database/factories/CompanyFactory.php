@@ -13,8 +13,16 @@ class CompanyFactory extends Factory
      */
     public function definition()
     {
+
+        $img = file_get_contents($this->faker->imageUrl('640', '480'));
+        $username =  $this->faker->name;
+        $fileName = $username.'.jpg';
+
         return [
-            //
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'logo' => $fileName,
+            'website' => $this->faker->name()
         ];
     }
 }
