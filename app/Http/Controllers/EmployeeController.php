@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UsertMail;
 use App\Models\Employee;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class EmployeeController extends Controller
@@ -52,6 +54,9 @@ class EmployeeController extends Controller
     public function store(Request $request): RedirectResponse
     {
         Employee::create($request->all());
+
+        $email = new UsertMail($request->name);
+        Mail::to($request->email)->send($email);
 
         return redirect('/employees');
     }
