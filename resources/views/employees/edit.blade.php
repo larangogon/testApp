@@ -16,5 +16,5 @@
             </div>
         @endif
     </div>
-    <form-component></form-component>
+    <form-employee-update-component>
 @endsection

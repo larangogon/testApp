@@ -6,5 +6,5 @@
         <a class="btn btn-danger" href="{{ url('/')}}">Crear</a>
     </div>
 
-    <form-component></form-component>
+    <form-employee-show-component>
 @endsection

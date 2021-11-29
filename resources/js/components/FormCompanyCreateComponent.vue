@@ -24,7 +24,7 @@
 
 <script>
 export default {
-    name: "FormComponent",
+    name: "FormCompanyCreateComponent",
     data(){
         return {
             token: document.querySelector('meta[name="csrf-token"]').getAttribute('content')

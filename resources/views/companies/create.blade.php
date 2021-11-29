@@ -16,5 +16,5 @@
             </div>
         @endif
     </div>
-    <form-component></form-component>
+    <form-company-create-component>
 @endsection
