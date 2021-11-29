@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import './bootstrap'
-import FormComponent from "./components/FormComponent";
+import FormComponent from "./components/FormCompanyCreateComponent";
 
 window.Vue = Vue
 
