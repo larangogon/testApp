@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmployeeCreateRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Mail\UsertMail;
 use App\Models\Employee;
 use Illuminate\Http\RedirectResponse;
@@ -48,10 +50,10 @@ class EmployeeController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param EmployeeCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(EmployeeCreateRequest $request): RedirectResponse
     {
         Employee::create($request->all());
 
@@ -82,11 +84,11 @@ class EmployeeController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param EmployeeUpdateRequest $request
      * @param Employee $employee
      * @return RedirectResponse
      */
-    public function update(Request $request, Employee $employee): RedirectResponse
+    public function update(EmployeeUpdateRequest $request, Employee $employee): RedirectResponse
     {
         $employee->update($request->all());
 

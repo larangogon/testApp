@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyCreateRequest;
+use App\Http\Requests\CompanyUpdateRequest;
 use App\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -47,13 +49,11 @@ class CompanyController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param CompanyCreateRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(CompanyCreateRequest $request): RedirectResponse
     {
-        //'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
         $logo = $request->file('logo');
         $logoName = $logo->getClientOriginalName();
         $contents = Storage::get($logoName);
@@ -88,11 +88,11 @@ class CompanyController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param CompanyUpdateRequest $request
      * @param Company $company
      * @return RedirectResponse
      */
-    public function update(Request $request, Company $company): RedirectResponse
+    public function update(CompanyUpdateRequest $request, Company $company): RedirectResponse
     {
         $logo = $request->file('logo');
         $logoName = $logo->getClientOriginalName();
